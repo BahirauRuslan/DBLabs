@@ -24,11 +24,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton markRecordsBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView markRecordsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -59,18 +54,28 @@
             this.markRecordsTableAdapter = new DBLab7.EducationalDepartmentDataSetTableAdapters.MarkRecordsTableAdapter();
             this.tableAdapterManager = new DBLab7.EducationalDepartmentDataSetTableAdapters.TableAdapterManager();
             this.markRecordsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.markRecordsBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.plansBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.plansTableAdapter = new DBLab7.EducationalDepartmentDataSetTableAdapters.PlansTableAdapter();
+            this.plansComboBox = new System.Windows.Forms.ComboBox();
+            this.groupsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupsTableAdapter = new DBLab7.EducationalDepartmentDataSetTableAdapters.GroupsTableAdapter();
+            this.groupsComboBox = new System.Windows.Forms.ComboBox();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter = new DBLab7.EducationalDepartmentDataSetTableAdapters.StudentsTableAdapter();
+            this.studentsComboBox = new System.Windows.Forms.ComboBox();
+            this.markRecordsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.markRecordsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +85,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.markRecordsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.markRecordsBindingNavigator)).BeginInit();
             this.markRecordsBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plansBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markRecordsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.markRecordsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,9 +143,34 @@
             this.markRecordsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.markRecordsBindingNavigator.Name = "markRecordsBindingNavigator";
             this.markRecordsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.markRecordsBindingNavigator.Size = new System.Drawing.Size(488, 25);
+            this.markRecordsBindingNavigator.Size = new System.Drawing.Size(870, 25);
             this.markRecordsBindingNavigator.TabIndex = 0;
             this.markRecordsBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -170,17 +204,10 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 6);
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -188,7 +215,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -197,40 +224,87 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 6);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // markRecordsBindingNavigatorSaveItem
             // 
             this.markRecordsBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.markRecordsBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("markRecordsBindingNavigatorSaveItem.Image")));
             this.markRecordsBindingNavigatorSaveItem.Name = "markRecordsBindingNavigatorSaveItem";
-            this.markRecordsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 23);
+            this.markRecordsBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.markRecordsBindingNavigatorSaveItem.Text = "Save Data";
             this.markRecordsBindingNavigatorSaveItem.Click += new System.EventHandler(this.MarkRecordsBindingNavigatorSaveItem_Click);
+            // 
+            // plansBindingSource
+            // 
+            this.plansBindingSource.DataMember = "Plans";
+            this.plansBindingSource.DataSource = this.educationalDepartmentDataSet;
+            // 
+            // plansTableAdapter
+            // 
+            this.plansTableAdapter.ClearBeforeFill = true;
+            // 
+            // plansComboBox
+            // 
+            this.plansComboBox.DataSource = this.plansBindingSource;
+            this.plansComboBox.DisplayMember = "Speciality";
+            this.plansComboBox.FormattingEnabled = true;
+            this.plansComboBox.Location = new System.Drawing.Point(462, 47);
+            this.plansComboBox.Name = "plansComboBox";
+            this.plansComboBox.Size = new System.Drawing.Size(300, 21);
+            this.plansComboBox.TabIndex = 1;
+            this.plansComboBox.ValueMember = "Id";
+            // 
+            // groupsBindingSource
+            // 
+            this.groupsBindingSource.DataMember = "FK_Groups_Plans";
+            this.groupsBindingSource.DataSource = this.plansBindingSource;
+            // 
+            // groupsTableAdapter
+            // 
+            this.groupsTableAdapter.ClearBeforeFill = true;
+            // 
+            // groupsComboBox
+            // 
+            this.groupsComboBox.DataSource = this.groupsBindingSource;
+            this.groupsComboBox.DisplayMember = "Number";
+            this.groupsComboBox.FormattingEnabled = true;
+            this.groupsComboBox.Location = new System.Drawing.Point(462, 97);
+            this.groupsComboBox.Name = "groupsComboBox";
+            this.groupsComboBox.Size = new System.Drawing.Size(300, 21);
+            this.groupsComboBox.TabIndex = 2;
+            this.groupsComboBox.ValueMember = "Id";
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "FK_Students_Groups";
+            this.studentsBindingSource.DataSource = this.groupsBindingSource;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentsComboBox
+            // 
+            this.studentsComboBox.DataSource = this.studentsBindingSource;
+            this.studentsComboBox.DisplayMember = "FullName";
+            this.studentsComboBox.FormattingEnabled = true;
+            this.studentsComboBox.Location = new System.Drawing.Point(462, 149);
+            this.studentsComboBox.Name = "studentsComboBox";
+            this.studentsComboBox.Size = new System.Drawing.Size(300, 21);
+            this.studentsComboBox.TabIndex = 3;
+            this.studentsComboBox.ValueMember = "Id";
+            // 
+            // markRecordsBindingSource1
+            // 
+            this.markRecordsBindingSource1.DataMember = "FK_MarkRecords_Students";
+            this.markRecordsBindingSource1.DataSource = this.studentsBindingSource;
             // 
             // markRecordsDataGridView
             // 
@@ -241,11 +315,11 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.markRecordsDataGridView.DataSource = this.markRecordsBindingSource;
+            this.markRecordsDataGridView.DataSource = this.markRecordsBindingSource1;
             this.markRecordsDataGridView.Location = new System.Drawing.Point(12, 28);
             this.markRecordsDataGridView.Name = "markRecordsDataGridView";
-            this.markRecordsDataGridView.Size = new System.Drawing.Size(464, 293);
-            this.markRecordsDataGridView.TabIndex = 1;
+            this.markRecordsDataGridView.Size = new System.Drawing.Size(444, 293);
+            this.markRecordsDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -276,8 +350,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 333);
+            this.ClientSize = new System.Drawing.Size(870, 333);
             this.Controls.Add(this.markRecordsDataGridView);
+            this.Controls.Add(this.studentsComboBox);
+            this.Controls.Add(this.groupsComboBox);
+            this.Controls.Add(this.plansComboBox);
             this.Controls.Add(this.markRecordsBindingNavigator);
             this.Name = "MarkForm";
             this.Text = "MarkForm";
@@ -287,6 +364,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.markRecordsBindingNavigator)).EndInit();
             this.markRecordsBindingNavigator.ResumeLayout(false);
             this.markRecordsBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.plansBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.markRecordsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.markRecordsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,5 +375,21 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.BindingSource plansBindingSource;
+        private EducationalDepartmentDataSetTableAdapters.PlansTableAdapter plansTableAdapter;
+        private System.Windows.Forms.ComboBox plansComboBox;
+        private System.Windows.Forms.BindingSource groupsBindingSource;
+        private EducationalDepartmentDataSetTableAdapters.GroupsTableAdapter groupsTableAdapter;
+        private System.Windows.Forms.ComboBox groupsComboBox;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private EducationalDepartmentDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
+        private System.Windows.Forms.ComboBox studentsComboBox;
+        private System.Windows.Forms.BindingSource markRecordsBindingSource1;
+        private System.Windows.Forms.DataGridView markRecordsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
